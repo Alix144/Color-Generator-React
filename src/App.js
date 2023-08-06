@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Content from "./Content";
+import { useState } from "react";
 
 function App() {
+  const [text, setText] = useState("Empty Value")
+  const [color, setColor] = useState("white")
+
+ const handleText = (e) => {
+  if(!e.target.value){
+    setText("Empty Value")
+    setColor("white")
+  }else{
+  setText(e.target.value)
+  setColor(e.target.value)
+  }
+ }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Content
+        text={text}
+        setText={setText}
+        handleText={handleText}
+        color={color}
+      />
     </div>
   );
 }
